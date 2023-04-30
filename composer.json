@@ -4,7 +4,8 @@
   "autoload": {
     "psr-4": {
       "Hexlet\\Code\\": "src/"
-    }
+    },
+    "files": ["src/Cli.php"]
   },
   "authors": [
     {
@@ -12,9 +13,11 @@
       "email": "ahiles3005@gmail.com"
     }
   ],
-  "require": {},
   "license": "proprietary",
   "bin": [
     "bin/brain-games"
-  ]
+  ],
+  "require": {
+    "wp-cli/php-cli-tools": "^0.11.18"
+  }
 }
