@@ -12,7 +12,6 @@ class Calc extends Engine
         '*'
     ];
 
-
     public function __construct()
     {
         $this->setAsk('What is the result of the expression?');

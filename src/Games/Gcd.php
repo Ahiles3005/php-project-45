@@ -21,7 +21,6 @@ class Gcd extends Engine
         $this->setCurrentAnswer($result);
     }
 
-
     private function gcd(int $a, int $b): int
     {
         while ($a != $b) {

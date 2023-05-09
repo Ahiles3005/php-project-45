@@ -2,7 +2,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function BrainGames\Cli\hello;
+use function cli\line;
 
 
-hello();
+line('Welcome to the Brain Game!');
