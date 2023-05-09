@@ -1,81 +1,42 @@
 <?php
 
-namespace Hexlet\Code;
+namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-class Engine
+function getName(string &$name): void
 {
-    private string $name;
-    protected string $currentAnswer;
-    private string $answer;
-    protected string $question;
-    protected string $textAsk;
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+}
 
-    public function hello(): void
-    {
-        line('Welcome to the Brain Game!');
-        $this->name = prompt('May I have your name?');
-        line("Hello, %s!", $this->name);
-    }
+function printEndText(string $name): void
+{
+    line("Congratulations, %s!", $name);
+}
 
-    public function question(): bool
-    {
-        $this->getAskText();
-        $this->answer = $this->getUserAnswer();
 
-        if ($this->validation()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+function printValidaMessage(): void
+{
+    line('Correct!');
+}
 
-    public function printEndText(): void
-    {
-        line("Congratulations, %s!", $this->name);
-    }
+function printInValidaMessage($name, $answer, $currentAnswer): void
+{
+    line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $currentAnswer);
+    line("Let's try again, %s!", $name);
+}
 
-    public function printValidaMessage(): void
-    {
-        line('Correct!');
-    }
 
-    public function printInValidaMessage(): void
-    {
-        line("'%s' is wrong answer ;(. Correct answer was '%s'.", $this->answer, $this->currentAnswer);
-        line("Let's try again, %s!", $this->name);
-    }
+function getAskText(string $textAsk, string $question): void
+{
+    line($textAsk);
+    line("Question: %s", $question);
+}
 
-    public function setQuestion(string $question): void
-    {
-        $this->question = $question;
-    }
-
-    public function setCurrentAnswer(string|int $currentAnswer): void
-    {
-        $this->currentAnswer = $currentAnswer;
-    }
-
-    public function setAsk(string $textAsk): void
-    {
-        $this->textAsk = $textAsk;
-    }
-
-    protected function validation(): string
-    {
-        return $this->answer === $this->currentAnswer;
-    }
-
-    private function getUserAnswer(): string
-    {
-        return strtolower(prompt('Your answer'));
-    }
-
-    private function getAskText()
-    {
-        line($this->textAsk);
-        line("Question: %s", $this->question);
-    }
+function getUserAnswer(): string
+{
+    return prompt('Your answer');
 }

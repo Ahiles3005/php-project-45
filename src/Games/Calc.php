@@ -1,48 +1,33 @@
 <?php
 
-namespace Hexlet\Code\Games;
+namespace Hexlet\Code\Games\Calc;
 
-use Hexlet\Code\Engine;
-
-class Calc extends Engine
+function dataGeneration(string &$question, string &$currentAnswer): void
 {
-    private array $mathOperation = [
+    $mathOperation = [
         '-',
         '+',
         '*'
     ];
 
-    public function __construct()
-    {
-        $this->setAsk('What is the result of the expression?');
+    $randomKey = array_rand($mathOperation, 1);
+    $operation = $mathOperation[$randomKey];
+
+
+    $numOne = rand(1, 10);
+    $numTwo = rand(1, 10);
+    $result = 0;
+    switch ($operation) {
+        case '-':
+            $result = $numOne - $numTwo;
+            break;
+        case '+':
+            $result = $numOne + $numTwo;
+            break;
+        case '*':
+            $result = $numOne * $numTwo;
+            break;
     }
-
-    public function dataGeneration(): void
-    {
-        $operation = $this->getRandomOperation();
-        $numOne = rand(1, 10);
-        $numTwo = rand(1, 10);
-        $result = 0;
-        switch ($operation) {
-            case '-':
-                $result = $numOne - $numTwo;
-                break;
-            case '+':
-                $result = $numOne + $numTwo;
-                break;
-            case '*':
-                $result = $numOne * $numTwo;
-                break;
-        }
-
-        $this->setQuestion($numOne . ' ' . $operation . ' ' . $numTwo);
-        $this->setCurrentAnswer((string)$result);
-    }
-
-
-    private function getRandomOperation(): string
-    {
-        $randomKey = array_rand($this->mathOperation, 1);
-        return $this->mathOperation[$randomKey];
-    }
+    $question = $numOne . ' ' . $operation . ' ' . $numTwo;
+    $currentAnswer = (string)$result;
 }

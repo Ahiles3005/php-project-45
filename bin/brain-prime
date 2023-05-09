@@ -2,20 +2,28 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use BrainGames\Engine;
 use Hexlet\Code\Games\Prime;
 
-$prime = new Prime();
-$prime->hello();
+$name = '';
+$answer = '';
+$currentAnswer = '';
+$question = '';
+$ask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+Engine\getName($name);
 for ($i = 0; $i < 3; $i++) {
-    $prime->dataGeneration();
-    $status = $prime->question();
+    Prime\dataGeneration($question, $currentAnswer);
 
-    if ($status) {
-        $prime->printValidaMessage();
+    Engine\getAskText($ask, $question);
+    $answer = Engine\getUserAnswer();
+
+    if ($answer === $currentAnswer) {
+        Engine\printValidaMessage();
     } else {
-        $prime->printInValidaMessage();
+        Engine\printInValidaMessage($name, $answer, $currentAnswer);
         exit();
     }
 }
-$prime->printEndText();
+Engine\printEndText($name);
+

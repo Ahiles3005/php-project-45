@@ -2,20 +2,28 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use BrainGames\Engine;
 use Hexlet\Code\Games\Gcd;
 
-$gcd = new Gcd();
-$gcd->hello();
+$name = '';
+$answer = '';
+$currentAnswer = '';
+$question = '';
+$ask = 'Find the greatest common divisor of given numbers.';
 
+Engine\getName($name);
 for ($i = 0; $i < 3; $i++) {
-    $gcd->dataGeneration();
-    $status = $gcd->question();
+    Gcd\dataGeneration($question, $currentAnswer);
 
-    if ($status) {
-        $gcd->printValidaMessage();
+    Engine\getAskText($ask, $question);
+    $answer = Engine\getUserAnswer();
+
+    if ($answer === $currentAnswer) {
+        Engine\printValidaMessage();
     } else {
-        $gcd->printInValidaMessage();
+        Engine\printInValidaMessage($name, $answer, $currentAnswer);
         exit();
     }
 }
-$gcd->printEndText();
+Engine\printEndText($name);
+

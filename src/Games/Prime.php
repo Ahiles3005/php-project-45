@@ -1,33 +1,19 @@
 <?php
 
-namespace Hexlet\Code\Games;
+namespace Hexlet\Code\Games\Prime;
 
-use Hexlet\Code\Engine;
-
-class Prime extends Engine
+function dataGeneration(string &$question, string &$currentAnswer): void
 {
-    public function __construct()
-    {
-        $this->setAsk('Answer "yes" if given number is prime. Otherwise answer "no".');
-    }
+    $question = rand(1, 100);
+    $currentAnswer = isSimple($question);
+}
 
-    public function dataGeneration(): void
-    {
-        $num = rand(1, 100);
-        $result = $this->isSimple($num);
-
-        $this->setQuestion($num);
-        $this->setCurrentAnswer($result);
-    }
-
-
-    private function isSimple(int $a): string
-    {
-        for ($i = 2; $i < $a; $i++) {
-            if ($a % $i == 0) {
-                return 'no';
-            }
+function isSimple(int $a): string
+{
+    for ($i = 2; $i < $a; $i++) {
+        if ($a % $i == 0) {
+            return 'no';
         }
-        return 'yes';
     }
+    return 'yes';
 }

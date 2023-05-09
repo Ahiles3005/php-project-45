@@ -2,20 +2,28 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use BrainGames\Engine;
 use Hexlet\Code\Games\Calc;
 
-$calc = new Calc();
-$calc->hello();
+$name = '';
+$answer = '';
+$currentAnswer = '';
+$question = '';
+$ask = 'What is the result of the expression?';
 
+Engine\getName($name);
 for ($i = 0; $i < 3; $i++) {
-    $calc->dataGeneration();
-    $status = $calc->question();
+    Calc\dataGeneration($question, $currentAnswer);
 
-    if ($status) {
-        $calc->printValidaMessage();
+    Engine\getAskText($ask, $question);
+    $answer = Engine\getUserAnswer();
+
+    if ($answer === $currentAnswer) {
+        Engine\printValidaMessage();
     } else {
-        $calc->printInValidaMessage();
+        Engine\printInValidaMessage($name, $answer, $currentAnswer);
         exit();
     }
 }
-$calc->printEndText();
+Engine\printEndText($name);
+
