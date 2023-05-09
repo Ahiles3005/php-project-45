@@ -45,7 +45,7 @@ class Engine
     public function printInValidaMessage(): void
     {
         line("'%s' is wrong answer ;(. Correct answer was '%s'.", $this->answer, $this->currentAnswer);
-        line("Let's try again, '%s'!", $this->name);
+        line("Let's try again, %s!", $this->name);
     }
 
     public function setQuestion(string $question): void
