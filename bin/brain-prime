@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hexlet\Code\Games\Prime;
+
+$prime = new Prime();
+$prime->hello();
+
+for ($i = 0; $i < 3; $i++) {
+    $prime->dataGeneration();
+    $status = $prime->question();
+
+    if ($status) {
+        $prime->printValidaMessage();
+    } else {
+        $prime->printInValidaMessage();
+        exit();
+    }
+}
+$prime->printEndText();
