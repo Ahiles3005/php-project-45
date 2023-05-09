@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hexlet\Code\Games\Gcd;
+
+$gcd = new Gcd();
+$gcd->hello();
+
+for ($i = 0; $i < 3; $i++) {
+    $gcd->dataGeneration();
+    $status = $gcd->question();
+
+    if ($status) {
+        $gcd->printValidaMessage();
+    } else {
+        $gcd->printInValidaMessage();
+        exit();
+    }
+}
+$gcd->printEndText();
