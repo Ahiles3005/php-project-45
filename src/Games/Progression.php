@@ -14,7 +14,7 @@ function dataGeneration(string &$question, string &$currentAnswer): void
     }
 
     $randKey = array_rand($elements);
-    $currentAnswer = $elements[$randKey];
+    $currentAnswer = (string)$elements[$randKey];
     $elements[$randKey] = '..';
     $question = implode(' ', $elements);
 }
