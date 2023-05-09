@@ -6,7 +6,7 @@ function dataGeneration(string &$question, string &$currentAnswer): void
 {
     $numOne = rand(1, 100);
     $numTwo = rand(1, 100);
-    $currentAnswer = gcd($numOne, $numTwo);
+    $currentAnswer = (string) gcd($numOne, $numTwo);
     $question = $numOne . ' ' . $numTwo;
 }
 
