@@ -23,7 +23,7 @@ function printValidaMessage(): void
     line('Correct!');
 }
 
-function printInValidaMessage($name, $answer, $currentAnswer): void
+function printInValidaMessage(string $name, string $answer, string $currentAnswer): void
 {
     line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $currentAnswer);
     line("Let's try again, %s!", $name);
