@@ -4,3 +4,6 @@
 
 Step 5
 [![asciicast](https://asciinema.org/a/dABsvhL4dY7l2oqNqwyoLzWev.svg)](https://asciinema.org/a/dABsvhL4dY7l2oqNqwyoLzWev)
+
+Step 6
+[![asciicast](https://asciinema.org/a/tEEGdSOfbCvEYVlrN6bPX1OaJ.svg)](https://asciinema.org/a/tEEGdSOfbCvEYVlrN6bPX1OaJ)

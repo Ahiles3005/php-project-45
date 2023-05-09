@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hexlet\Code\Games\Calc;
+
+$calc = new Calc();
+$calc->hello();
+
+for ($i = 0; $i < 3; $i++) {
+    $calc->dataGeneration();
+    $status = $calc->question();
+
+    if ($status) {
+        $calc->printValidaMessage();
+    } else {
+        $calc->printInValidaMessage();
+        exit();
+    }
+}
+$calc->printEndText();

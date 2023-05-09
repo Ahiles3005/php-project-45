@@ -2,15 +2,19 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Hexlet\Code\Quest;
+use Hexlet\Code\Games\Even;
 
-$quest = new Quest();
-$quest->hello();
+$even = new Even();
+$even->hello();
 for ($i = 0; $i < 3; $i++) {
-    $status = $quest->question();
-    $quest->printMessage();
-    if (!$status) {
+    $even->dataGeneration();
+    $status = $even->question();
+
+    if ($status) {
+        $even->printValidaMessage();
+    } else {
+        $even->printInValidaMessage();
         exit();
     }
 }
-$quest->printEndText();
+$even->printEndText();
