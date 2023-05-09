@@ -53,7 +53,7 @@ class Engine
         $this->question = $question;
     }
 
-    public function setCurrentAnswer(string $currentAnswer): void
+    public function setCurrentAnswer(string|int $currentAnswer): void
     {
         $this->currentAnswer = $currentAnswer;
     }
