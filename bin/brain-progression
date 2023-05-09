@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hexlet\Code\Games\Progression;
+
+$progression = new Progression();
+$progression->hello();
+
+for ($i = 0; $i < 3; $i++) {
+    $progression->dataGeneration();
+    $status = $progression->question();
+
+    if ($status) {
+        $progression->printValidaMessage();
+    } else {
+        $progression->printInValidaMessage();
+        exit();
+    }
+}
+$progression->printEndText();
