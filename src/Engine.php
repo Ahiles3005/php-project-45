@@ -76,6 +76,6 @@ class Engine
     private function getAskText()
     {
         line($this->textAsk);
-        line("Question %s", $this->question);
+        line("Question: %s", $this->question);
     }
 }
