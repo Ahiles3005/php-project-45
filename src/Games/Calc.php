@@ -41,7 +41,7 @@ class Calc extends Engine
     }
 
 
-    private function getRandomOperation(): int|string
+    private function getRandomOperation(): string
     {
         $randomKey = array_rand($this->mathOperation, 1);
         return $this->mathOperation[$randomKey];

@@ -22,7 +22,7 @@ class Gcd extends Engine
     }
 
 
-    private function gcd($a, $b)
+    private function gcd(int $a, int $b): int
     {
         while ($a != $b) {
             if ($a > $b) {
