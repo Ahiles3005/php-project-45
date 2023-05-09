@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hexlet\Code\Quest;
+
+$quest = new Quest();
+$quest->hello();
+for ($i = 0; $i < 3; $i++) {
+    $status = $quest->question();
+    $quest->printMessage();
+    if (!$status) {
+        exit();
+    }
+}
+$quest->printEndText();
